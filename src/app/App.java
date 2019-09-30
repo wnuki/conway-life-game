@@ -13,11 +13,6 @@ public class App {
             e.printStackTrace();
         }
 
-        SwingUtilities.invokeLater(new Runnable() {
-            @Override
-            public void run() {
-                new MainFrame();
-            }
-        });
+        SwingUtilities.invokeLater(() -> new MainFrame());
     }
 }
