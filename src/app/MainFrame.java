@@ -9,8 +9,6 @@ import gui.Toolbar;
 
 import javax.swing.*;
 import java.awt.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
@@ -22,22 +20,22 @@ public class MainFrame extends JFrame implements ButtonListener {
     private TimePanel timePanel;
     private ExecutorService executor;
 
-    public MainFrame(){
+    public MainFrame() {
         super(Constants.NAME_OF_APPLICATION);
         initializeMenu();
         initializeMainLayout();
     }
 
     private void initializeMainLayout() {
-        toolbar=new Toolbar();
-        timePanel=new TimePanel();
-        board=new Board(timePanel);
+        toolbar = new Toolbar();
+        timePanel = new TimePanel();
+        board = new Board(timePanel);
 
         toolbar.setButtonListener(this);
 
         add(board, BorderLayout.CENTER);
-        add(toolbar,BorderLayout.NORTH);
-        add(timePanel,BorderLayout.SOUTH);
+        add(toolbar, BorderLayout.NORTH);
+        add(timePanel, BorderLayout.SOUTH);
 
         setSize(Constants.FRAME_WIDTH, Constants.FRAME_HEIGHT);
         setVisible(true);
@@ -63,13 +61,11 @@ public class MainFrame extends JFrame implements ButtonListener {
         menuBar.add(fileMenu);
         menuBar.add(aboutMenu);
 
-        exitMenuItem.addActionListener(new ActionListener() {
-            public void actionPerformed(ActionEvent arg0) {
-                int action = JOptionPane.showConfirmDialog(MainFrame.this, Constants.MENU_EXIT_TEXT,Constants.MENU_EXIT_TITLE,JOptionPane.YES_NO_OPTION);
-                if( action == JOptionPane.OK_OPTION ){
-                    System.gc();
-                    System.exit(0);
-                }
+        exitMenuItem.addActionListener(arg0 -> {
+            int action = JOptionPane.showConfirmDialog(MainFrame.this, Constants.MENU_EXIT_TEXT, Constants.MENU_EXIT_TITLE, JOptionPane.YES_NO_OPTION);
+            if (action == JOptionPane.OK_OPTION) {
+                System.gc();
+                System.exit(0);
             }
         });
 
@@ -79,11 +75,9 @@ public class MainFrame extends JFrame implements ButtonListener {
     @Override
     public void startClicked() {
 
-        SwingUtilities.invokeLater(new Runnable(){
-            public void run(){
-                toolbar.setStartButton(false);
-                toolbar.setRestartButton(true);
-            }
+        SwingUtilities.invokeLater(() -> {
+            toolbar.setStartButton(false);
+            toolbar.setRestartButton(true);
         });
 
         Controller.startThread();
@@ -94,11 +88,9 @@ public class MainFrame extends JFrame implements ButtonListener {
     @Override
     public void restartClicked() {
 
-        SwingUtilities.invokeLater(new Runnable(){
-            public void run(){
-                toolbar.setStartButton(true);
-                toolbar.setRestartButton(false);
-            }
+        SwingUtilities.invokeLater(() -> {
+            toolbar.setStartButton(true);
+            toolbar.setRestartButton(false);
         });
 
         executor.shutdown();

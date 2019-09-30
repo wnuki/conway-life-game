@@ -1,12 +1,10 @@
 package app;
 
 import javax.swing.*;
-import java.io.IOException;
-import java.net.URISyntaxException;
 
 public class App {
 
-    public static void main(String[] args) throws IOException, URISyntaxException {
+    public static void main(String[] args) {
         try {
             UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
         } catch (ClassNotFoundException | InstantiationException| IllegalAccessException | UnsupportedLookAndFeelException e) {

@@ -39,9 +39,9 @@ public class Toolbar extends JPanel implements ActionListener {
 
     @Override
     public void actionPerformed(ActionEvent e) {
-        if ((JButton) e.getSource() == startButton && buttonListener != null) {
+        if (e.getSource() == startButton && buttonListener != null) {
             buttonListener.startClicked();
-        } else if ((JButton) e.getSource() == restartButton && buttonListener != null) {
+        } else if (e.getSource() == restartButton && buttonListener != null) {
             buttonListener.restartClicked();
         }
     }
