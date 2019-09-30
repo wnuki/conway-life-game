@@ -6,7 +6,7 @@ public class Constants {
 
     public static final String NAME_OF_APPLICATION = "Conway's Game";
     public static final int NUMBER_OF_ROWS = 30;
-    public static final int NUMBER_OF_COLUMS = 30;
+    public static final int NUMBER_OF_COLUMNS = 30;
     public static final String START = "Start";
     public static final String RESTART = "Reset";
     public static final int TIME_LAG = 200;
