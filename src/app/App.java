@@ -6,7 +6,6 @@ import java.net.URISyntaxException;
 
 public class App {
 
-
     public static void main(String[] args) throws IOException, URISyntaxException {
         try {
             UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
