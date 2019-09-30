@@ -19,7 +19,7 @@ public class Board extends JPanel {
     public Board(TimePanel timePanel) {
         this.timePanel = timePanel;
         initializeLayout();
-
+        paintBoard();
     }
 
     private void initializeLayout() {
@@ -42,6 +42,7 @@ public class Board extends JPanel {
                     || i % Constants.NUMBER_OF_ROWS == 0) {
                 continue;
             }
+
             if (cells[i - 1].isAlive()) {
                 countLiveNeighbours++;
             }
